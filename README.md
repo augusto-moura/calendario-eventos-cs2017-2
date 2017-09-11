@@ -1,1 +1,3 @@
-# calendario-eventos-cs2017-2
+# Calendário de eventos
+
+Uma agenda de eventos e compromissos.

@@ -19,7 +19,7 @@ build:
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
     - shippable_retry npm install
-    - $npm test
+    - npm test
 
 
 # Integrations are used to connect external resources to CI

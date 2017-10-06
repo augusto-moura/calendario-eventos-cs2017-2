@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login Agenda Eventos</title>
+    <title>Cadastro de Evento</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/calendario-eventos-cs2017-2/css/bootstrap.min.css" rel="stylesheet">
@@ -19,13 +19,20 @@
 
     <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputUser" class="sr-only">Usuário</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus>
-        <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      <form method="post" action="/calendario-eventos-cs2017-2/php/adciEvent.php">
+        <div>
+          <label for="button">Selecione a Data</label>
+          <div>
+            <input type="date" name="dataCadastro" id="seleDataCad">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="txtArea">Descreva Evento</label>
+          <textarea class="form-control" name="descEvento" id="txtAreaCd" rows="3"></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
       </form>
 
     </div> <!-- /container -->

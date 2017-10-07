@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,23 +18,34 @@
   <body>
 
     <div class="container">
-
+      <p>
       <form method="post" action="/calendario-eventos-cs2017-2/php/adciEvent.php">
         <div>
+
           <label for="button">Selecione a Data</label>
           <div>
-            <input type="date" name="dataCadastro" id="seleDataCad">
+            <input type="text" name="159" id="seleDataCad">
           </div>
+
         </div>
+
         <div class="form-group">
           <label for="txtArea">Descreva Evento</label>
           <textarea class="form-control" name="descEvento" id="txtAreaCd" rows="3"></textarea>
         </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Tenho Certeza
+          </label>
+        </div>
+
         <div>
           <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
       </form>
-
+</p>
     </div> <!-- /container -->
 
 

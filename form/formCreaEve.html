@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
-
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -22,10 +22,16 @@
       <form method="post" action="/calendario-eventos-cs2017-2/php/adciEvent.php">
         <div>
 
-          <label for="button">Selecione a Data</label>
+          <label for="button">Selecione a Data de Início do Evento</label>
           <div>
-            <input type="date" name="dataCadastro" id="seleDataCad">
+            <input type="date" name="dataCadastroInicial" id="seleDataCadInicial">
           </div>
+
+          <label for="button">Selecione a Data do último dia do Evento</label>
+          <div>
+            <input type="date" name="dataCadastroFinal" id="seleDataCadFinal">
+          </div>
+
 
         </div>
 

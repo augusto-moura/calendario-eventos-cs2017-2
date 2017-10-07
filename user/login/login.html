@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Apagar Evento</title>
+    <title>Login Agenda Eventos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/calendario-eventos-cs2017-2/css/bootstrap.min.css" rel="stylesheet">
@@ -19,16 +19,15 @@
 
     <div class="container">
 
-      <form>
-        <div>
-          <label for="button">Selecione a Data</label>
-          <div>
-            <input type="date" id="seleDateDel">
-          </div>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary">Apagar</button>
-        </div>
+      <form method="post" action="/calendario-eventos-cs2017-2/menu/menu.php" 
+
+      class="form-signin">
+        <h2 class="form-signin-heading">Login</h2>
+        <label for="inputUser" class="sr-only">Usuário</label>
+        <input type="text" name="nomeLogin" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" name="senhaLogin" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       </form>
 
     </div> <!-- /container -->

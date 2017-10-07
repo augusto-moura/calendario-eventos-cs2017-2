@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
-
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cadastro de Evento</title>
+    <title>Opções de Eventos</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/calendario-eventos-cs2017-2/css/bootstrap.min.css" rel="stylesheet">
@@ -18,27 +18,24 @@
   <body>
 
     <div class="container">
-      <p>
-      <form method="post" action="/calendario-eventos-cs2017-2/php/adciEvent.php">
-        <div>
+      <center>
 
-          <label for="button">Selecione a Data</label>
-          <div>
-            <input type="date" name="dataCadastro" id="seleDataCad">
-          </div>
+        <a class="btn btn-primary" href="/calendario-eventos-cs2017-2/form/formCreaEve.html"
+          role="button">Adicionar Evento</a>
+        <br>
+        <br>
+        <a class="btn btn-warning" href="/calendario-eventos-cs2017-2/form/formEdEve.html"
+            role="button">Alterar Evento</a>
+        <br>
+        <br>
+        <a class="btn btn-danger" href="/calendario-eventos-cs2017-2/form/formDelEve.html"
+            role="button">Apagar Evento</a>
+        <br>
+        <br>
+        <!-- Implementar para mostrar todos os eventos do usuário logado -->
+        <button type="button" class="btn btn-info">Listar Todos Eventos</button>
 
-        </div>
-
-        <div class="form-group">
-          <label for="txtArea">Descreva Evento</label>
-          <textarea class="form-control" name="descEvento" id="txtAreaCd" rows="3"></textarea>
-        </div>
-
-        <div>
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </div>
-      </form>
-</p>
+      </center>
     </div> <!-- /container -->
 
 

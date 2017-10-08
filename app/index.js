@@ -1,1 +1,7 @@
-const sqlConnection = require('./domain/connection-instance.js');
+const userService = require('./domain/userRepository.js');
+
+userService.createUserHashingPassword({
+  batata: 12,
+  name: 'Augusto',
+  password: '123',
+});

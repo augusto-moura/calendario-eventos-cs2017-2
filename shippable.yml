@@ -2,13 +2,17 @@
 language: node_js
 
 node_js:
-  - 6.11.3
+  - 8.6.0
+
+services:
+  - postgres
 
 # use this to control what branches get built.
 # http://docs.shippable.com/ci/advancedOptions/branches/
 branches:
   only:
     - master
+    - feature/*
 
 # using pre-defined build variables
 # full list http://docs.shippable.com/ci/advancedOptions/environmentVariables/
@@ -19,10 +23,16 @@ build:
 
   # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
+    - psql -c 'CREATE ROLE shippable WITH superuser;' -U postgres
+    - psql -c 'CREATE DATABASE calendario;' -U postgres
+    - psql -c "CREATE USER admin WITH PASSWORD 'admin@4376$;';" -U postgres
+    - psql -c 'GRANT ALL PRIVILEGES ON DATABASE calendario to admin;' -U postgres
+
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
     - shippable_retry npm install
     - npm test
+
 
 
 # Integrations are used to connect external resources to CI

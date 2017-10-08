@@ -1,0 +1,22 @@
+1 -Realizar login: O usuário, assim que entrar na página inicial do sistema, verá uma tela inicial para efetuar o login na sua conta, 
+  contendo os campos de email, e senha. Ao preencher esses campos devidamente, o usuário terá acesso ao seu calendario de eventos.
+  
+2 - Visualizar calendário de eventos: Dentro do sua conta, o usuário verá um calendario do mês corrente, com os dias do mesmo e os dias 
+    marcados com eventos, com uma cor específica.
+
+3- Visualizar eventos do dia: Dentro de sua conta, o usuário poderá filtar todos os eventos que aconteceram no dia atual, bem como todos 
+   os dados dos mesmos. 
+   
+4 - Adicionar evento: Dentro de sua conta, o usuário poderá navegar entre os dias dos meses, e assim, adicionar um evento a algum dia a frente
+    do dia do mês corrente. de forma que, o mesmo possa definir o titulo do evento, o local do evento, o período de inicio e fim do evento,
+    uma descrição do evento.
+
+5 - Editar evento: Dentro de sua conta, o usuário poderá navegar entre os dias dos meses, e assim, acessar os dias em que há eventos 
+    marcados, e assim editar os atributos do evento e salva-lo novamente.
+
+6 - Excluir evento: Dentro de sua conta, o usuário poderá navegar entre os dias dos meses, e assim, acessar os dias em que há eventos 
+    marcados, e assim exclui-los.
+
+    
+    
+    

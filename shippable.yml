@@ -9,6 +9,7 @@ node_js:
 branches:
   only:
     - master
+    - feature/*
 
 # using pre-defined build variables
 # full list http://docs.shippable.com/ci/advancedOptions/environmentVariables/

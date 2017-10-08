@@ -1,5 +1,10 @@
+1 - Realizar Cadastro: O usuário, assim que entrar na página inicial do sistema, verá uma tela inicial para efetuar o login na sua conta, 
+  contendo os campos de email, senha, e ao final da página um link para efeturar cadastro. Ao clecar em realizar cadastro, o mesmo será 
+  redrecionado para uma página, onde ele informara uma conta de email e senha. 
+
 1 -Realizar login: O usuário, assim que entrar na página inicial do sistema, verá uma tela inicial para efetuar o login na sua conta, 
-  contendo os campos de email, e senha. Ao preencher esses campos devidamente, o usuário terá acesso ao seu calendario de eventos.
+  contendo os campos de email, senha, e ao final da página um link para efeturar cadastro. Ao preencher esses campos de email e senha 
+  devidamente, o usuário terá acesso ao seu calendario de eventos.  
   
 2 - Visualizar calendário de eventos: Dentro do sua conta, o usuário verá um calendario do mês corrente, com os dias do mesmo e os dias 
     marcados com eventos, com uma cor específica.

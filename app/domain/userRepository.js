@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcryptjs');
 
-const connection = require('./connectionInstance');
+const connection = require('./dbConnection');
 
 const userRepository: Promise<any> = connection.define("user", {
   name: Sequelize.STRING,

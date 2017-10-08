@@ -2,7 +2,7 @@
 language: node_js
 
 node_js:
-  - 6.11.3
+  - 8.6.0
 
 services:
   - postgres
@@ -25,7 +25,7 @@ build:
   ci:
     - psql -c 'CREATE ROLE shippable WITH superuser;' -U postgres
     - psql -c 'CREATE DATABASE calendario;' -U postgres
-    - psql -c 'CREATE USER admin WITH PASSWORD admin@4376$;' -U postgres
+    - psql -c "CREATE USER admin WITH PASSWORD 'admin@4376$;';" -U postgres
     - psql -c 'GRANT ALL PRIVILEGES ON DATABASE calendario to admin;' -U postgres
 
     # npm mirrors can sometimes be flacky, better to use shippable_retry

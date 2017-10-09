@@ -21,11 +21,16 @@
 
       <form>
         <div>
-          <label for="button">Selecione a Data</label>
+          <label for="button">Selecione a Data de Início do Evento</label>
           <div>
-            <input type="date" id="seleDataEdt">
+            <input type="date" name="dataCadastroInicial" id="seleDataCadInicial">
           </div>
-        </div>
+
+          <label for="button">Selecione a Data do último dia do Evento</label>
+          <div>
+            <input type="date" name="dataCadastroFinal" id="seleDataCadFinal">
+          </div>
+          
         <div class="form-group">
           <label for="txtArea">Escreva uma nova Descrição do Evento</label>
           <textarea class="form-control" id="txtAreaEdt" rows="3"></textarea>

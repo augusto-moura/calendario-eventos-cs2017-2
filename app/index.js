@@ -1,17 +1,20 @@
-const express = require('express');
-
 const PORTA = process.env.PORT || 3000;
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const extraRoutes = require('./appRoutes');
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   if (req.headers['x-forwarded-proto'] === 'https') {
-//     res.redirect(`http://${req.hostname + req.url}`);
-//   } else {
-//     next();
-//   }
-// });
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
 app.use(express.static(`${__dirname}/public`));
+
+for (const route of extraRoutes) {
+  app[route.method](route.path, route.handler);
+}
 
 app.listen(PORTA, () => console.log(`Servidor subiu na porta: ${PORTA}`));

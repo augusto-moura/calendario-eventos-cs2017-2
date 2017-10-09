@@ -6,13 +6,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Apagar Evento</title>
+    <title>Editar Evento</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/calendario-eventos-cs2017-2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/calendario-eventos-cs2017-2/css/signin.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
   </head>
 
   <body>
@@ -23,13 +23,14 @@
         <div>
           <label for="button">Selecione a Data</label>
           <div>
-            <input type="date" id="seleDateDel">
+            <input type="date" id="seleDataEdt">
           </div>
         </div>
-          <br>
-        <div>
-          <button type="submit" class="btn btn-primary">Apagar</button>
+        <div class="form-group">
+          <label for="txtArea">Escreva uma nova Descrição do Evento</label>
+          <textarea class="form-control" id="txtAreaEdt" rows="3"></textarea>
         </div>
+        <button type="submit" class="btn btn-primary">Editar</button>
       </form>
 
     </div> <!-- /container -->

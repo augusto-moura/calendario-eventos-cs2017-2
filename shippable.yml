@@ -1,8 +1,8 @@
 # Language setting http://docs.shippable.com/ci/languages/node/
-language: node_js
+language: java
 
-node_js:
-  - 8.6.0
+jdk:
+- oraclejdk8
 
 services:
   - postgres
@@ -30,10 +30,8 @@ build:
 
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
-    - shippable_retry npm install
-    - npm test
-
-
+    - ./gradlew assemble
+    - ./gradlew test
 
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/

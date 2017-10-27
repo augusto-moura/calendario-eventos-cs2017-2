@@ -10,7 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CalendarioApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void canaryTest() {
+		assert true;
 	}
 
 }

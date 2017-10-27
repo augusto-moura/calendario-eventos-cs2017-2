@@ -1,0 +1,7 @@
+server:
+  port: 8083
+spring:
+  session:
+    store-type: jdbc
+    jersey:
+      applicationPath: '/api'

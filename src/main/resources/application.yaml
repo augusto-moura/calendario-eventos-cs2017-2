@@ -3,5 +3,7 @@ server:
 spring:
   session:
     store-type: jdbc
-    jersey:
-      applicationPath: '/api'
+  jersey:
+    application-path: /api
+  server:
+      servlet-path: /

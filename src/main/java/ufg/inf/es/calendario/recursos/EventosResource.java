@@ -41,14 +41,14 @@ public class EventosResource {
     * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
     */
     @GET
-    public List<Evento> consultaTodos() {
+    public List<Evento> consultaTodos() { 
         return eventosService.consultarTodos();
     }
     
     /**
     * Adiciona um novo evento ao calendário de um usuário
     *
-    * @param Evento - objeto com as suas eventos.
+    * @param Evento - objeto com os atributos de evento.
     * @return objeto do tipo evento - objeto contendo todos os eventos de cadastrados. 
     * no sistema.
     * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.

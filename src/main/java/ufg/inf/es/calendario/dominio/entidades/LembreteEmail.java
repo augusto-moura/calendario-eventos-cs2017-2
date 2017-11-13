@@ -4,6 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.awt.*;
+/**
+ * Aluno: Breno de Melo Gomes e Augusto Borges de moura
+ * Versão: <1.0>
+ * Data de Criação: 13/11/2017
+ * Copyright (c) 2017 UFG - www.ufg.br
+ * Todos os direitos reservados.
+ *
+ * Esta classe tem o propósito de ser a classe que abstrai o lebrete de um email
+ */
 
 @Entity
 public class LembreteEmail {

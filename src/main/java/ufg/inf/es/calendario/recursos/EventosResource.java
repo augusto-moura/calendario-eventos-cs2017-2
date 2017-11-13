@@ -43,7 +43,7 @@ public class EventosResource {
     @GET
     public List<Evento> consultaTodos() { 
         return eventosService.consultarTodos();
-    }
+    } 
     
     /**
     * Adiciona um novo evento ao calendário de um usuário

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Cadastro de Evento</title>
+
+  <script src="../lib/jquery-3.2.1.js"></script>
+
+  <link href="../lib/bootstrap.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+
+  <script>
+    const searchParams = new URLSearchParams(window.location.search);
+    const eventoId = Number(searchParams.get('id'));
+
+    if (!eventoId) {
+      window.alert('Id passado inválido');
+    }
+
+    $(() => {
+      $.getJSON(`../api/eventos/${eventoId}`).then((evento) => {
+        $('#evento-titulo').text(evento.titulo);
+        $('#evento-descricao').text(evento.descricao);
+        $('#evento-data').text(new Date(evento.data).toLocaleDateString());
+      }).catch((err) => {
+        console.error(err);
+        window.alert('Evento com identificador passado não existe');
+      });
+    })
+  </script>
+</head>
+
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Calendário</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="../index.html">Visualizar calendário</a>
+      <a class="nav-item nav-link" href="./adicionar-evento.html">Adicionar evento</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="template__titulo">Detalhes do evento</h1>
+
+  <div><strong>Título:</strong></div>
+  <p id="evento-titulo"></p>
+
+  <div><strong>Data:</strong></div>
+  <p id="evento-data"></p>
+
+  <div><strong>Descrição:</strong></div>
+  <p id="evento-descricao"></p>
+</div>
+</body>
+</html>

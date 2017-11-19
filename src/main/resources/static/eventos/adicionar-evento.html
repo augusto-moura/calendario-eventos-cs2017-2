@@ -11,6 +11,30 @@
   <script src="../lib/jquery-3.2.1.js"></script>
 
   <link href="../lib/bootstrap.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+
+  <script>
+    $(() => {
+      $('#form-add-evento').on('submit', (event) => {
+        event.preventDefault();
+
+        const evento = {
+          titulo   : $('#evento-titulo').val(),
+          data     : Date.parse($('#evento-data').val()),
+          descricao: $('#evento-descricao').val(),
+        };
+
+        $.post({
+          url        : '../api/eventos',
+          data       : JSON.stringify(evento),
+          contentType: 'application/json; charset=UTF-8',
+        }).then(() => {
+          window.alert('Evento criado com sucesso!');
+          window.location.replace('../index.html');
+        });
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -28,7 +52,7 @@
 </nav>
 
 <div class="container">
-  <h1>Cadastrar novo evento</h1>
+  <h1 class="template__titulo">Cadastrar novo evento</h1>
 
   <form id="form-add-evento">
     <div class="form-group">
@@ -50,28 +74,5 @@
     <button class="btn btn-danger" type="reset">Limpar</button>
   </form>
 </div>
-
-<script>
-  $(() => {
-    $('#form-add-evento').on('submit', (event) => {
-      event.preventDefault();
-
-      const evento = {
-        titulo   : $('#evento-titulo').val(),
-        data     : Date.parse($('#evento-data').val()),
-        descricao: $('#evento-descricao').val(),
-      };
-
-      $.post({
-        url        : '../api/eventos',
-        data       : JSON.stringify(evento),
-        contentType: 'application/json; charset=UTF-8',
-      }).then(() => {
-        window.alert('Evento criado com sucesso!');
-        window.location.replace('../index.html');
-      });
-    });
-  });
-</script>
 </body>
 </html>

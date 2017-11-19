@@ -16,13 +16,12 @@ import javax.ws.rs.core.MediaType;
  * Data de Criação: 13/11/2017
  * Copyright (c) 2017 UFG - www.ufg.br
  * Todos os direitos reservados.
- *
- * Esta classe tem o propósito de ser a interface de comunicação 
+ * Esta classe tem o propósito de ser a interface de comunicação
  * do o servidor e a aplicação calendário.
  */
 
 @Named
-@Path("/healthcheck") 
+@Path("/healthcheck")
 @Produces(MediaType.APPLICATION_JSON)
 public class HealthCheckResource {
 
@@ -30,13 +29,11 @@ public class HealthCheckResource {
     private BuildProperties buildProperties;
 
     /**
-    *  Construtor da conexão da aplicação ao servidor.
-    *
-    * @param null - nenhum paramentro
-    * @return objeto do tipo ApplicationInfo - objeto contendo o nome e versão do objeto.
-    * sistema.
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */    
+     * Retorna informações da versão e informações da aplicação.
+     * Útil para checagens de saúde da API
+     *
+     * @return objeto do tipo ApplicationInfo - objeto contendo o nome e versão da aplicação.
+     */
     @GET
     public ApplicationInfo getInfo() {
         return new ApplicationInfo(buildProperties.getName(), buildProperties.getVersion());

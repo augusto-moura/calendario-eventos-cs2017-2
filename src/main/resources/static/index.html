@@ -18,11 +18,21 @@
   <link href="./lib/fullcalendar.css" rel="stylesheet">
 
   <script type="application/javascript">
-    $(() = > {
-      $('.calendario'
-    ).fullCalendar();
-    })
-    ;
+    $(() => {
+      $('.calendario').fullCalendar({
+        events(start, end, timezone, callback) {
+          $.getJSON('./api/eventos').then((eventos) => {
+            const fullCalendarEvents = eventos.map(evento => ({
+              title : evento.titulo,
+              allDay: true,
+              start : new Date(evento.data),
+            }));
+
+            callback(fullCalendarEvents);
+          });
+        },
+      });
+    });
   </script>
 </head>
 

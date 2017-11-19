@@ -52,26 +52,26 @@
 </div>
 
 <script>
-  $(() = > {
-    $('#form-add-evento'
-  ).on('submit', (event) = > {
-    event.preventDefault();
+  $(() => {
+    $('#form-add-evento').on('submit', (event) => {
+      event.preventDefault();
 
-  const evento = {
-    titulo   : $('#evento-titulo').val(),
-    data     : Date.parse($('#evento-data').val()),
-    descricao: $('#evento-descricao').val(),
-  };
+      const evento = {
+        titulo   : $('#evento-titulo').val(),
+        data     : Date.parse($('#evento-data').val()),
+        descricao: $('#evento-descricao').val(),
+      };
 
-  $.post('../api/eventos', evento).then(() = > {
-    window.alert('Evento criado com sucesso!');
-  window.location.replace('../index.html');
-  })
-  ;
-  })
-  ;
-  })
-  ;
+      $.post({
+        url        : '../api/eventos',
+        data       : JSON.stringify(evento),
+        contentType: 'application/json; charset=UTF-8',
+      }).then(() => {
+        window.alert('Evento criado com sucesso!');
+        window.location.replace('../index.html');
+      });
+    });
+  });
 </script>
 </body>
 </html>

@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Login ou Cadastro</title>
+  <title>Calendário de eventos</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <script src="./lib/jquery-3.2.1.js"></script>
+  <script src="./lib/moment.min.js"></script>
+  <script src="./lib/fullcalendar.js"></script>
+  <script src="./lib/bootstrap.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="./css/signin.css" rel="stylesheet">
-  </head>
+  <link href="./lib/bootstrap.css" rel="stylesheet">
+  <link href="./lib/fullcalendar.css" rel="stylesheet">
 
-  <body>
+  <script type="application/javascript">
+    $(() = > {
+      $('.calendario'
+    ).fullCalendar();
+    })
+    ;
+  </script>
+</head>
 
-    <div class="container">
-
-      <form class="form-signin">
-
-        <div>
-          Fazer Login ou Cadastrar(Caso novo usuário)
-        </div>
-        <br>
-        <div>
-          <input value="Login" class="btn btn-lg btn-primary btn-block" type="button" name="pagLogin" onclick="javascript: location.href='./user/login/login.html';">
-        </div>
-        <br>
-        <div>
-          <input value="Fazer Cadastro" class="btn btn-lg btn-primary btn-block" type="button" name="fazerCad"
-            onclick="javascript: location.href='./user/cadastro/cadastro.html';">
-        </div>
-
-      </form>
-
-
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Calendário</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active">Visualizar calendário <span class="sr-only">(atual)</span></a>
+      <a class="nav-item nav-link" href="./eventos/adicionar-evento.html">Adicionar evento</a>
     </div>
-    <!-- /container -->
+  </div>
+</nav>
 
-
-    <!-- Bootstrap core JavaScript
-          ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="ie10-viewport-bug-workaround.js"></script>
-  </body>
+<div class="container">
+  <h1>Calendário</h1>
+  <div class="calendario"></div>
+</div>
+</body>
 
 </html>

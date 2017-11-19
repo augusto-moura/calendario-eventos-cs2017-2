@@ -6,11 +6,11 @@ Uma agenda de eventos e compromissos.
 ### Iniciar a aplicação
 Para iniciar a aplicação é necessário ter instalado no computador a JDK 8.
 
-Para iniciar a aplicação basta executar no terminal:
+Para iniciar a aplicação basta executar no terminal (na pasta raiz do projeto):
 
 ```bash
 # Se windows:
-.\gradlew.bat bootRun
+gradlew bootRun
 
 # Se linux:
 ./gradlew bootRun
@@ -24,10 +24,10 @@ Using default security password: [senha bem grande aqui]
 ### Executando os testes
 Para executar os testes é necessário ter instalado no computador o Groovy 2.4.
 
-Para executar os testes basta executar no terminal:
+Para executar os testes basta executar no terminal (na pasta raiz do projeto):
 ```bash
 # Se windows:
-.\gradlew.bat test
+gradlew test
 
 # Se linux:
 ./gradlew test

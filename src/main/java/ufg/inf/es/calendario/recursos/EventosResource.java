@@ -77,4 +77,18 @@ public class EventosResource {
         return Response.ok().build();
     }
 
+    /**
+     * Apaga um Evento por seu ID.
+     *
+     * @param id         Identificador do Evento a ser apagado.
+     * @param novoEvento Evento modificado a ser colocado no lugar do antigo.
+     * @return Evento modificado pós salvamento
+     */
+    @PUT
+    @Path("/{id}")
+    public Evento sobreescreverPorId(@PathParam("id") final Long id, final Evento novoEvento) {
+        return eventosService.sobreescreverPorId(id, novoEvento);
+    }
+
+
 }

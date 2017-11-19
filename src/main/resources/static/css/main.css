@@ -6,3 +6,8 @@
 .container {
     padding-bottom: 4rem;
 }
+
+.btn,
+.fc-event {
+    cursor: pointer;
+}

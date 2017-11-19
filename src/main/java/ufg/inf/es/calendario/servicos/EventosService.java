@@ -79,4 +79,21 @@ public class EventosService {
         eventosDao.delete(id);
     }
 
+    /**
+     * Apaga um Evento por seu ID.
+     *
+     * @param id         Identificador do Evento a ser apagado.
+     * @param novoEvento Evento modificado a ser colocado no lugar do antigo.
+     * @return Evento modificado pós salvamento
+     */
+    public Evento sobreescreverPorId(final Long id, final Evento novoEvento) {
+        if (!eventosDao.exists(id)) {
+            throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
+        }
+
+        novoEvento.setId(id);
+
+        return eventosDao.save(novoEvento);
+    }
+
 }

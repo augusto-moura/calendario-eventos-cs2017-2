@@ -21,9 +21,11 @@
   <script type="application/javascript">
     $(() => {
       $('.calendario').fullCalendar({
+
         events(start, end, timezone, callback) {
           $.getJSON('./api/eventos').then((eventos) => {
             const fullCalendarEvents = eventos.map(evento => ({
+              apiId : evento.id,
               title : evento.titulo,
               allDay: true,
               start : new Date(evento.data),
@@ -32,6 +34,11 @@
             callback(fullCalendarEvents);
           });
         },
+
+        eventClick(calendarEvent) {
+          window.location.replace(`./eventos/detalhes-evento.html?id=${Number(calendarEvent.apiId)}`)
+        },
+
       });
     });
   </script>

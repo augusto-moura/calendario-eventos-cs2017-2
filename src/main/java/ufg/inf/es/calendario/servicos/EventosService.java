@@ -57,14 +57,26 @@ public class EventosService {
      *
      * @param id Identificador do Evento a ser buscado
      * @return Evento com Identificador passado por argumento
-     * @throws NotFoundException se não existir nenhum Evento com o identificador passado
      */
-    public Evento consultarPorId(final Long id) throws NotFoundException {
+    public Evento consultarPorId(final Long id) {
         if (!eventosDao.exists(id)) {
             throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
         }
 
         return eventosDao.findOne(id);
+    }
+
+    /**
+     * Apaga um Evento por seu ID.
+     *
+     * @param id Identificador do Evento a ser apagado
+     */
+    public void apagarPorId(final Long id) {
+        if (!eventosDao.exists(id)) {
+            throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
+        }
+
+        eventosDao.delete(id);
     }
 
 }

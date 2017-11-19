@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -61,6 +62,19 @@ public class EventosResource {
     @Path("/{id}")
     public Evento consultarPorId(@PathParam("id") final Long id) {
         return eventosService.consultarPorId(id);
+    }
+
+    /**
+     * Apaga um Evento por seu ID.
+     *
+     * @param id Identificador do Evento a ser apagado.
+     * @return Resposta com OK caso o evento tenha sido apagado ou erro a ser tratado.
+     */
+    @DELETE
+    @Path("/{id}")
+    public Response apagarPorId(@PathParam("id") final Long id) {
+        eventosService.apagarPorId(id);
+        return Response.ok().build();
     }
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 /**
  * Aluno: Breno de Melo Gomes e Augusto Borges de moura
- * Versão: <1.0>
+ * Versão: 1.0
  * Data de Criação: 13/11/2017
  * Copyright (c) 2017 UFG - www.ufg.br
  * Todos os direitos reservados.
@@ -49,6 +49,8 @@ public class LembreteEmail {
 
     /**
      * Altera o emailAlvo da instância da classe LembreteEmail.
+     *
+     * @param emailAlvo Endereço de email a ser definido como email alvo do lembrete.
      */
     public void setEmailAlvo(String emailAlvo) {
         this.emailAlvo = emailAlvo;
@@ -65,6 +67,8 @@ public class LembreteEmail {
 
     /**
      * Altera a mensagem da instância da classe LembreteEmail.
+     *
+     * @param mensagem Texto de mensagem a ser definida como mensagem do lembrete.
      */
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;

@@ -22,8 +22,12 @@ import java.util.List;
 @Named
 public class EventosService {
 
+    private final EventosDao eventosDao;
+
     @Inject
-    private EventosDao eventosDao;
+    public EventosService(final EventosDao eventosDao) {
+        this.eventosDao = eventosDao;
+    }
 
     /**
      * Consulta todos os eventos de um usuário.

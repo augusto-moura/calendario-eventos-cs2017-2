@@ -25,8 +25,12 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class HealthCheckResource {
 
+    private final BuildProperties buildProperties;
+
     @Inject
-    private BuildProperties buildProperties;
+    public HealthCheckResource(final BuildProperties buildProperties) {
+        this.buildProperties = buildProperties;
+    }
 
     /**
      * Retorna informações da versão e informações da aplicação.

@@ -26,8 +26,12 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class EventosResource {
 
+    private final EventosService eventosService;
+
     @Inject
-    private EventosService eventosService;
+    public EventosResource(final EventosService eventosService) {
+        this.eventosService = eventosService;
+    }
 
     /**
      * Consulta todos os eventos de um usuário.

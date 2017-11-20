@@ -21,7 +21,6 @@ public class ApplicationInfo {
         this.versao = versao;
     }
 
-
     /**
      * {@inheritDoc}
      */

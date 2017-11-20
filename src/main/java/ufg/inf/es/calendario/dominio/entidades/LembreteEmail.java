@@ -2,15 +2,17 @@ package ufg.inf.es.calendario.dominio.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import java.awt.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  * Aluno: Breno de Melo Gomes e Augusto Borges de moura
  * Versão: <1.0>
  * Data de Criação: 13/11/2017
  * Copyright (c) 2017 UFG - www.ufg.br
  * Todos os direitos reservados.
- *
  * Esta classe tem o propósito de ser a classe que abstrai o lebrete de um email
  */
 
@@ -30,100 +32,76 @@ public class LembreteEmail {
     private Evento evento;
 
     /**
-    * Lembra o email especificado na intância do objeto.
-    *
-    * @param null - não há parametros.
-    * @return null - não há parametros . 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Lembra o email especificado na intância do objeto.
+     */
     void lembrar() {
         System.out.println("Lembrando email: " + emailAlvo);
     }
 
     /**
-    * retorna o email da instância da classe LembreteEmail.
-    *
-    * @param null - não há parametros.
-    * @return string - contendo o emailAlvo da instancia LembreteEmail que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna o email da instância da classe LembreteEmail.
+     *
+     * @return string - contendo o emailAlvo da instancia LembreteEmail que chama a função.
+     */
     public String getEmailAlvo() {
         return emailAlvo;
     }
 
     /**
-    * altera o emailAlvo da instância da classe LembreteEmail.
-    *
-    * @param string - string com o emailAlvo da instancia LembreteEmail.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera o emailAlvo da instância da classe LembreteEmail.
+     */
     public void setEmailAlvo(String emailAlvo) {
         this.emailAlvo = emailAlvo;
     }
 
     /**
-    * retorna o mesagem da instância da classe LembreteEmail.
-    *
-    * @param null - não há parametros.
-    * @return string - contendo a mensagem da instancia LembreteEmail que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Retorna o mesagem da instância da classe LembreteEmail.
+     *
+     * @return string - contendo a mensagem da instancia LembreteEmail que chama a função.
+     */
     public String getMensagem() {
         return mensagem;
     }
 
     /**
-    * altera a mensagem da instância da classe LembreteEmail.
-    *
-    * @param string - string com a mensagem da instancia LembreteEmail.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera a mensagem da instância da classe LembreteEmail.
+     */
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
 
     /**
-    * retorna o id da instância da classe LembreteEmail.
-    *
-    * @param null - não há parametros.
-    * @return Long - contendo o Id da instancia LembreteEmail que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna o id da instância da classe LembreteEmail.
+     *
+     * @return Id do LembreteEmail.
+     */
     public Long getId() {
         return id;
     }
 
     /**
-    * retorna o evento da instância da classe LembreteEmail.
-    *
-    * @param string - string com o evento da instancia LembreteEmail.
-    * @return evento - contendo o evento da instancia LembreteEmail que chama a função. . 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna o evento da instância da classe LembreteEmail.
+     *
+     * @return Evento da instancia LembreteEmail.
+     */
     public Evento getEvento() {
         return evento;
     }
 
     /**
-    * Altera o evento da instância da classe LembreteEmail.
-    *
-    * @param evento - evento da instancia LembreteEmail.
-    * @return null - não há retorno.
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera o evento da instância da classe LembreteEmail.
+     *
+     * @param evento Evento a ser definido no lembrete.
+     */
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
 
     /**
-    * Altera o id da instância da classe LembreteEmail.
-    *
-    * @param long - id da instancia LembreteEmail.
-    * @return null - não há retorno.
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera o id da instância da classe LembreteEmail.
+     *
+     * @param id Id a ser definido no lembrete.
+     */
     public void setId(Long id) {
         this.id = id;
     }

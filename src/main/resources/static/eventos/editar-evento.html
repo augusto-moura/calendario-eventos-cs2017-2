@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Cadastro de Evento</title>
+
+  <script src="../lib/jquery-3.2.1.js"></script>
+
+  <link href="../lib/bootstrap.css" rel="stylesheet">
+  <link href="../lib/octicons.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
+
+  <style>
+    .icon-padding {
+      padding-right: 1em;
+    }
+  </style>
+
+  <script>
+    const redirectHome = () => window.location.replace('../index.html');
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const eventoId = Number(searchParams.get('id'));
+
+    if (!eventoId) {
+      window.alert('Id passado inválido');
+      redirectHome();
+    }
+
+    $.getJSON(`../api/eventos/${eventoId}`).then((evento) => {
+      $(() => {
+        $('#evento-titulo').val(evento.titulo);
+        $('#evento-descricao').val(evento.descricao);
+
+        const data = new Date(evento.data);
+        const dataFormatada = data.toISOString().replace(/Z$/, '');
+
+        $('#evento-data').val(dataFormatada);
+      });
+    }).catch((err) => {
+      console.error(err);
+      window.alert('Evento com identificador passado não existe');
+      redirectHome();
+    });
+
+    $(() => {
+      $('#form-editar-evento').on('submit', (event) => {
+        event.preventDefault();
+
+        const evento = {
+          titulo   : $('#evento-titulo').val(),
+          descricao: $('#evento-descricao').val(),
+          data     : new Date($('#evento-data').val()),
+        };
+
+        $.ajax(`../api/eventos/${eventoId}`, {
+          method     : 'PUT',
+          data       : JSON.stringify(evento),
+          contentType: 'application/json; charset=UTF-8',
+        }).then(() => {
+          window.alert('Evento alterado com sucesso!');
+          redirectHome();
+        }).catch(() => {
+          window.alert('Houve um erro ao salvar o evento. Por favor tente mais tarde.');
+        })
+      });
+    })
+  </script>
+</head>
+
+<body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="../index.html">Calendário</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="../index.html">Visualizar calendário</a>
+      <a class="nav-item nav-link" href="./adicionar-evento.html">Adicionar evento</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="template__titulo">Editar evento</h1>
+
+  <form id="form-editar-evento">
+    <div class="form-group">
+      <label for="evento-titulo">Título:</label>
+      <input required class="form-control" type="text" id="evento-titulo">
+    </div>
+
+    <div class="form-group">
+      <label for="evento-data">Data:</label>
+      <input required class="form-control" type="datetime-local" id="evento-data">
+    </div>
+
+    <div class="form-group">
+      <label for="evento-descricao">Descrição: </label>
+      <textarea required class="form-control" rows="4" id="evento-descricao"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Editar</button>
+    <button class="btn btn-danger" type="reset">Limpar</button>
+  </form>
+</div>
+</body>
+</html>

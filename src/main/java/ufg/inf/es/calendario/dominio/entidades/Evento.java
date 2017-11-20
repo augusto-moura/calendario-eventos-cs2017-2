@@ -6,13 +6,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
+
 /**
  * Aluno: Breno de Melo Gomes e Augusto Borges de moura
  * Versão: <1.0>
  * Data de Criação: 13/11/2017
  * Copyright (c) 2017 UFG - www.ufg.br
  * Todos os direitos reservados.
- *
+ * <p>
  * Esta classe tem o propósito de ser a classe que abstrai o evento.
  */
 
@@ -37,133 +38,104 @@ public class Evento {
     private Set<LembreteEmail> lembreteEmails;
 
     /**
-    * retorna o titulo da instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return string - contendo o titulo da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Retorna o titulo da instância da classe evento.
+     *
+     * @return Titulo da instancia evento que chama a função.
+     */
     public String getTitulo() {
         return titulo;
     }
 
-    /**
-    * altera o nome da instância da classe Evento.
-    *
-    * @param string - string com o titulo do objeto.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
     /**
-    * retorna o id da instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return Long - contendo o id da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Retorna o id da instância da classe evento.
+     *
+     * @return Id da instancia evento que chama a função.
+     */
     public Long getId() {
         return id;
     }
 
     /**
-    * altera o id da instância da classe Evento.
-    *
-    * @param Long - long com o id do objeto.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * altera o id da instância da classe Evento.
+     *
+     * @param id Id do objeto.
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-    * retorna o id da instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return Usuario - contendo o usuario da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna o id da instância da classe evento.
+     *
+     * @return Usuario da instancia evento que chama a função.
+     */
     public Usuario getUsuario() {
         return usuario;
     }
 
     /**
-    * altera o usuário do instância da classe Evento.
-    *
-    * @param Usuario - objeto da classe Usuario.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * altera o usuário do instância da classe Evento.
+     *
+     * @param usuario Usuario responsável pelo evento.
+     */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
     /**
-    * retorna a descrição do instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return Long - contendo o descrição da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna a descrição do instância da classe evento.
+     *
+     * @return Descrição do evento.
+     */
     public String getDescricao() {
         return descricao;
     }
 
     /**
-    * altera a descrição da instância da classe Evento.
-    *
-    * @param Usuario - objeto da classe Usuario.
-    * @return null - Não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * altera a descrição da instância da classe Evento.
+     *
+     * @param descricao Texto a ser definido como descrição do evento.
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
     /**
-    * retorna a data do instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return Long - contendo a data da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna a data do instância da classe evento.
+     *
+     * @return Data à acontecer o evento.
+     */
     public Date getData() {
         return data;
     }
 
     /**
-    * Altera a data do instância da classe evento.
-    *
-    * @param data - objeto da classe data.
-    * @return null -não há retorno.
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera a data do instância da classe evento.
+     *
+     * @param data Data a ser definida para o evento.
+     */
     public void setData(Date data) {
         this.data = data;
     }
 
     /**
-    * retorna o lembrete da instância da classe evento.
-    *
-    * @param null - não há parametros.
-    * @return Long - contendo a data da instancia evento que chama a função. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * retorna o lembrete da instância da classe evento.
+     *
+     * @return Lembretes definidos para o evento.
+     */
     public Set<LembreteEmail> getLembreteEmails() {
         return lembreteEmails;
     }
 
     /**
-    * Altera o lebrete da instância da classe evento.
-    *
-    * @param LembreteEmail - objeto da classe lebretesEmail.
-    * @return null - não há retorno. 
-    * @throws IOException - no caso de problema  a função não retorna nenhuma exceção.
-    */
+     * Altera o lebrete da instância da classe evento.
+     *
+     * @param lembreteEmails Lembretes que substituírão os lembretes atuais do evento.
+     */
     public void setLembreteEmails(Set<LembreteEmail> lembreteEmails) {
         this.lembreteEmails = lembreteEmails;
     }

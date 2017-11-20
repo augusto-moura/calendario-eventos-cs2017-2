@@ -20,7 +20,6 @@ build:
 
   # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
-    - mkdir shippable/testresults
     - ./gradlew test
 
 

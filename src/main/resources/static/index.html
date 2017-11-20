@@ -12,6 +12,7 @@
   <script src="./lib/jquery-3.2.1.js"></script>
   <script src="./lib/moment.min.js"></script>
   <script src="./lib/fullcalendar.js"></script>
+  <script src="./lib/fullcalendar.locale.pt-br.js"></script>
   <script src="./lib/bootstrap.js"></script>
 
   <link href="./lib/bootstrap.css" rel="stylesheet">
@@ -21,14 +22,16 @@
   <script type="application/javascript">
     $(() => {
       $('.calendario').fullCalendar({
+        locale    : 'pt-br',
         timeFormat: 'HH:mm',
+        eventColor: '#777dff',
 
         events(start, end, timezone, callback) {
           $.getJSON('./api/eventos').then((eventos) => {
             const fullCalendarEvents = eventos.map(evento => ({
-              apiId : evento.id,
-              title : evento.titulo,
-              start : new Date(evento.data),
+              apiId: evento.id,
+              title: evento.titulo,
+              start: new Date(evento.data),
             }));
 
             callback(fullCalendarEvents);

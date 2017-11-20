@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Aluno: Breno de Melo Gomes e Augusto Borges de moura
- * Versão: <1.0>
+ * Versão: 1.0
  * Data de Criação: 13/11/2017
  * Copyright (c) 2017 UFG - www.ufg.br
  * Todos os direitos reservados.

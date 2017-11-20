@@ -29,12 +29,24 @@ springBoot {
     buildInfo()
 }
 
+task limparJavaDoc(type: Delete, group: 'documentation') {
+    delete ['./docs/JavaDoc']
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    destinationDir = file('./docs/JavaDoc')
+}
+
+javadoc.dependsOn limparJavaDoc
+
 test {
-	if (isContinuousIntegration) {
-		reports.junitXml.destination = file('shippable/testresults')
-	} else {
-		reports.junitXml.destination = file('build/test-results')
-	}
+    if (isContinuousIntegration) {
+        reports.junitXml.destination = file('shippable/testresults')
+    } else {
+        reports.junitXml.destination = file('build/test-results')
+    }
 }
 
 dependencies {

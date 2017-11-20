@@ -9,6 +9,6 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 
-[*.java]
+[*.{java,groovy,gradle}]
 indent_style = space
 indent_size = 4

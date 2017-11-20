@@ -4,9 +4,6 @@ language: java
 jdk:
 - oraclejdk8
 
-services:
-  - postgres
-
 # use this to control what branches get built.
 # http://docs.shippable.com/ci/advancedOptions/branches/
 branches:
@@ -23,10 +20,6 @@ build:
 
   # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
-    - psql -c 'CREATE ROLE shippable WITH superuser;' -U postgres
-    - psql -c 'CREATE DATABASE calendario;' -U postgres
-    - psql -c "CREATE USER admin WITH PASSWORD 'admin@4376$;';" -U postgres
-    - psql -c 'GRANT ALL PRIVILEGES ON DATABASE calendario to admin;' -U postgres
     - ./gradlew test
 
 

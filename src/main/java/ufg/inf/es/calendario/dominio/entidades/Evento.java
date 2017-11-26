@@ -37,6 +37,18 @@ public class Evento {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "evento", cascade = CascadeType.ALL)
     private Set<LembreteEmail> lembreteEmails;
 
+    @Override
+    public String toString() {
+        return "Evento{" +
+            "id=" + id +
+            ", titulo='" + titulo + '\'' +
+            ", descricao='" + descricao + '\'' +
+            ", data=" + data +
+            ", usuario=" + usuario +
+            ", lembreteEmails=" + lembreteEmails +
+            '}';
+    }
+
     /**
      * Retorna o titulo da instância da classe evento.
      *

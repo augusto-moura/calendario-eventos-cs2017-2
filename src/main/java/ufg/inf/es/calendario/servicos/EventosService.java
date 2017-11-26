@@ -1,5 +1,9 @@
 package ufg.inf.es.calendario.servicos;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import ufg.inf.es.calendario.dao.EventosDao;
 import ufg.inf.es.calendario.dominio.entidades.Evento;
 
@@ -22,11 +26,23 @@ import java.util.List;
 @Named
 public class EventosService {
 
+    private static final Logger logger = LoggerFactory.getLogger(EventosService.class);
+
     private final EventosDao eventosDao;
 
     @Inject
     public EventosService(final EventosDao eventosDao) {
         this.eventosDao = eventosDao;
+    }
+
+    private User getUser() {
+        final Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof User) {
+            return (User) principal;
+        } else {
+            throw new IllegalStateException("Não existe usuário presente no contexto atual");
+        }
     }
 
     /**
@@ -36,11 +52,18 @@ public class EventosService {
      * sistema.
      */
     public List<Evento> consultarTodos() {
+        final User usuarioAtual = getUser();
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "iniciou uma consulta de todos Eventos do sistema");
+
         List<Evento> lista = new ArrayList<>();
 
         for (Evento evento : eventosDao.findAll()) {
             lista.add(evento);
         }
+
+        logger.info("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "concluiu uma consulta de todos Eventos do sistema");
 
         return lista;
     }
@@ -53,7 +76,16 @@ public class EventosService {
      * no sistema.
      */
     public Evento salvar(Evento evento) {
-        return eventosDao.save(evento);
+        final User usuarioAtual = getUser();
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "iniciou a criação do evento:\n\n" + evento.toString());
+
+        final Evento eventoSalvo = eventosDao.save(evento);
+
+        logger.info("Usuário com nome `" + usuarioAtual.getUsername() + "`, " +
+            "concluiu a criação do evento:\n\n" + evento.toString());
+
+        return eventoSalvo;
     }
 
     /**
@@ -63,11 +95,23 @@ public class EventosService {
      * @return Evento com Identificador passado por argumento
      */
     public Evento consultarPorId(final Long id) {
+        final User usuarioAtual = getUser();
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "iniciou uma consulta do Evento com identificador: " + id);
+
         if (!eventosDao.exists(id)) {
+            logger.error("Evento com identificador: " + id + ", pesquisado pelo " +
+                "usuário: `" + usuarioAtual.getUsername() + "` não foi encontrado");
+
             throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
         }
 
-        return eventosDao.findOne(id);
+        final Evento eventoEncontrado = eventosDao.findOne(id);
+
+        logger.info("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "concluiu com sucesso uma consulta do Evento com identificador: " + id);
+
+        return eventoEncontrado;
     }
 
     /**
@@ -76,9 +120,20 @@ public class EventosService {
      * @param id Identificador do Evento a ser apagado
      */
     public void apagarPorId(final Long id) {
+        final User usuarioAtual = getUser();
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "requisitou apagar o Evento com identificador: " + id);
+
         if (!eventosDao.exists(id)) {
+            logger.error("Evento com identificador: " + id + ", requisitado " +
+                "para ser apagado pelo usuário: `" + usuarioAtual.getUsername() +
+                "` não foi encontrado");
+
             throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
         }
+
+        logger.info("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "apagou com sucesso o Evento com identificador: " + id);
 
         eventosDao.delete(id);
     }
@@ -91,13 +146,28 @@ public class EventosService {
      * @return Evento modificado pós salvamento
      */
     public Evento sobreescreverPorId(final Long id, final Evento novoEvento) {
+        final User usuarioAtual = getUser();
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "iniciou a sobrescrita do conteúdo do evento com identficador: " + id +
+            " para: " + novoEvento.toString());
+
         if (!eventosDao.exists(id)) {
+            logger.error("Evento com identificador: " + id + ", requisitado " +
+                "para ser sobreescrito pelo usuário: `" + usuarioAtual.getUsername() +
+                "` não foi encontrado");
             throw new NotFoundException("Evento com identificador `" + id + "`, não foi encontrado");
         }
 
         novoEvento.setId(id);
 
-        return eventosDao.save(novoEvento);
+        final Evento eventoAtual = eventosDao.findOne(id);
+        final Evento eventoSobreescrito = eventosDao.save(novoEvento);
+
+        logger.trace("Usuário com nome: `" + usuarioAtual.getUsername() + "`, " +
+            "concluiu com sucesso a sobrescrita do conteúdo do evento com " +
+            "identficador: " + id + " de: " + eventoAtual.toString() + ", para: " + eventoSobreescrito.toString());
+
+        return eventoSobreescrito;
     }
 
 }

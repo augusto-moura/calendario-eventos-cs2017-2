@@ -42,6 +42,16 @@ public class Usuario extends User {
         super(username, password, authorities);
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+            "id=" + id +
+            ", nome='" + nome + '\'' +
+            ", eventos=" + eventos +
+            ", email='" + email + '\'' +
+            '}';
+    }
+
     /**
      * Retorna o nome do usuário.
      *

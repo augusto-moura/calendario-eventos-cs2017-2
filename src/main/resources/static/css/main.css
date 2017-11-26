@@ -11,3 +11,7 @@
 .fc-event {
     cursor: pointer;
 }
+
+.nav-link.active {
+    font-weight: bold;
+}

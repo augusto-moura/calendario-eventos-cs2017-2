@@ -38,6 +38,16 @@ public class LembreteEmail {
         System.out.println("Lembrando email: " + emailAlvo);
     }
 
+    @Override
+    public String toString() {
+        return "LembreteEmail{" +
+            "id=" + id +
+            ", mensagem='" + mensagem + '\'' +
+            ", emailAlvo='" + emailAlvo + '\'' +
+            ", evento=" + evento +
+            '}';
+    }
+
     /**
      * retorna o email da instância da classe LembreteEmail.
      *
